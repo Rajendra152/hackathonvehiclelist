@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import "../assets/muitable.css";
-import data from "./mock-data.json";
 import DeleteData from "./DeleteData";
 
 
@@ -9,9 +8,15 @@ import DeleteData from "./DeleteData";
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 const MuiTable = () => {
-    const [contacts, setContacts] = useState(data);
+    const [info, setInfo] = useState([]);
+  useEffect(() => {
+    fetch("https://63037d409eb72a839d824580.mockapi.io/Vehicle")
+      .then((response) => response.json())
+      .then((json) => setInfo(json));
+
+  },[]);
     const [addFormData, setAddFormData] = useState({
-      fullName: "",
+      name: "",
       manufacturer: "",
       model: "",
       fuel: "",
@@ -39,7 +44,7 @@ const MuiTable = () => {
     
         const newContact = {
           id: nanoid(),
-          fullName: addFormData.fullName,
+          name: addFormData.name,
           manufacturer: addFormData.manufacturer,
           model: addFormData.model,
           fuel: addFormData.fuel,
@@ -50,15 +55,15 @@ const MuiTable = () => {
           country: addFormData.country,
         };
     
-        const newContacts = [...contacts, newContact];
-        setContacts(newContacts);
+        const newContacts = [...info, newContact];
+        setInfo(newContacts);
       };
 
     const handleDeleteClick = (contactId) => {
-        const newContacts = [...contacts];
-        const index = contacts.findIndex((contact) => contact.id === contactId);
+        const newContacts = [...info];
+        const index = info.findIndex((contact) => contact.id === contactId);
         newContacts.splice(index, 1);
-        setContacts(newContacts);
+        setInfo(newContacts);
     };
 
     return (
@@ -80,7 +85,7 @@ const MuiTable = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {contacts.map((contact) => (
+                        {info.map((contact) => (
                             <>
                                 <DeleteData
                                     contact={contact}

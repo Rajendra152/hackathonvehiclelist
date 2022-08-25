@@ -5,7 +5,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 const DeleteData = ({ contact, handleDeleteClick }) => {
   return (
     <tr>
-      <td>{contact.fullName}</td>
+      <td>{contact.name}</td>
       <td>{contact.manufacturer}</td>
       <td>{contact.model}</td>
       <td>{contact.fuel}</td>

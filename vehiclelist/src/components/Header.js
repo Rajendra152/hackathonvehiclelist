@@ -5,10 +5,9 @@ import {
   Button,
   ToggleButtonGroup,
   ToggleButton,
-	Alert,
-	AlertTitle
 } from "@mui/material";
-import DeleteIcon from '@mui/icons-material/Delete';
+import MovingIcon from '@mui/icons-material/Moving';
+import MenuIcon from '@mui/icons-material/Menu';
 import "../assets/Header.css";
 
 const Header = () => {
@@ -38,10 +37,10 @@ const Header = () => {
             aria-label="text formatting"
           >
             <ToggleButton value="bold" aria-label="bold">
-              <DeleteIcon />
+						<MenuIcon />
             </ToggleButton>
             <ToggleButton value="italic" aria-label="italic">
-						<DeleteIcon />
+						<MovingIcon />
             </ToggleButton>
           </ToggleButtonGroup>
 					</div>
