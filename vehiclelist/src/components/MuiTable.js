@@ -4,9 +4,6 @@ import "../assets/muitable.css";
 import DeleteData from "./DeleteData";
 
 
-
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-
 const MuiTable = () => {
     const [info, setInfo] = useState([]);
   useEffect(() => {
