@@ -136,14 +136,14 @@ const MuiTable = () => {
           onChange={handleAddFormChange}
         />
         <input
-          type="text"
+          type="number"
           name="price"
           required="required"
           placeholder="Enter the price..."
           onChange={handleAddFormChange}
         />
         <input
-          type="number"
+          type="text"
           name="currency"
           required="required"
           placeholder="Enter the currency..."
