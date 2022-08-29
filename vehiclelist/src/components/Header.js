@@ -16,7 +16,6 @@ const Header = () => {
   const [formats, setFormats] = useState("");
 	const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 	const [info, setInfo] = useState([]);
-
 	const [addFormData, setAddFormData] = useState({
 		name: "",
 		manufacturer: "",
@@ -44,7 +43,7 @@ const Header = () => {
 	const handleAddFormSubmit = (event) => {
 		event.preventDefault();
 
-		const newContact = {
+		const vehicleList = {
 			id: nanoid(),
 			name: addFormData.name,
 			manufacturer: addFormData.manufacturer,
@@ -57,17 +56,10 @@ const Header = () => {
 			country: addFormData.country,
 		};
 
-		const newContacts = [...info, newContact];
-		setInfo(newContacts);
+		const newVehicleList = [...info, vehicleList];
+		setInfo(newVehicleList);
 	};
 
-
-  const handleFormatChange = (
-    _event: React.MouseEvent<HTMLElement>,
-    updatedFormats: string[]
-  ) => {
-    setFormats(updatedFormats);
-  };
   return (
     <div class="component">
       <div class="row">
@@ -165,7 +157,6 @@ const Header = () => {
           <ToggleButtonGroup
             exclusive
             value={formats}
-            onChange={handleFormatChange}
             aria-label="text formatting"
           >
             <ToggleButton value="bold" aria-label="bold">

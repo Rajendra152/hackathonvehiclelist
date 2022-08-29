@@ -39,7 +39,7 @@ const MuiTable = () => {
       const handleAddFormSubmit = (event) => {
         event.preventDefault();
     
-        const newContact = {
+        const vehicleList = {
           id: nanoid(),
           name: addFormData.name,
           manufacturer: addFormData.manufacturer,
@@ -52,15 +52,15 @@ const MuiTable = () => {
           country: addFormData.country,
         };
     
-        const newContacts = [...info, newContact];
-        setInfo(newContacts);
+        const newVehicleList = [...info, vehicleList];
+        setInfo(newVehicleList);
       };
 
-    const handleDeleteClick = (contactId) => {
-        const newContacts = [...info];
-        const index = info.findIndex((contact) => contact.id === contactId);
-        newContacts.splice(index, 1);
-        setInfo(newContacts);
+    const handleDeleteClick = (vehicleListId) => {
+        const newVehicleList = [...info];
+        const index = info.findIndex((vehicleList) => vehicleList.id === vehicleListId);
+        newVehicleList.splice(index, 1);
+        setInfo(newVehicleList);
     };
 
     return (
@@ -82,10 +82,10 @@ const MuiTable = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {info.map((contact) => (
+                        {info.map((vehicleList) => (
                             <>
                                 <DeleteData
-                                    contact={contact}
+                                    vehicleList={vehicleList}
                                     handleDeleteClick={handleDeleteClick}
                                 />
                             </>
